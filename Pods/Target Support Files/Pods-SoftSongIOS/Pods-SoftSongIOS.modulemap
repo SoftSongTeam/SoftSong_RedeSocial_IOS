@@ -1,0 +1,6 @@
+framework module Pods_SoftSongIOS {
+  umbrella header "Pods-SoftSongIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

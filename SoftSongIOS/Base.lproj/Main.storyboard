@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SoftSongIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logologo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NEf-5b-H3f">
+                                <rect key="frame" x="87" y="63" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8f-WW-mXv">
+                                <rect key="frame" x="70" y="275" width="301" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.06816294044" green="0.11416090280000001" blue="0.18708732719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" hint="Login" label="Login"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48P-xR-Ql9">
+                                <rect key="frame" x="70" y="352" width="301" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.06816294044" green="0.11416090280000001" blue="0.18708732719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" hint="Login" label="Login"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-nova-mensagem-100" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-i0-S2f">
+                                <rect key="frame" x="16" y="280" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-cadeado-2-100" translatesAutoresizingMaskIntoConstraints="NO" id="HwR-bB-0bd">
+                                <rect key="frame" x="16" y="357" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJI-S5-CW7">
+                                <rect key="frame" x="32" y="453" width="350" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Logar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fBM-8Y-g4G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KjR-dK-aSD">
+                                <rect key="frame" x="86" y="535" width="242" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ainda nao tem conta? Cadastre-se!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4Kg-XH-vh2" kind="presentation" id="fBM-5q-GfK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.068162940442562103" green="0.11416090279817581" blue="0.18708732724189758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="View" destination="8bC-Xf-vdC" id="fsg-sz-fu0"/>
+                        <outlet property="btnLogin" destination="bJI-S5-CW7" id="F5P-Ih-eho"/>
+                        <outlet property="txtLogin" destination="n8f-WW-mXv" id="Cml-sQ-xPi"/>
+                        <outlet property="txtSenha" destination="48P-xR-Ql9" id="bwY-U8-6s2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
+        </scene>
+        <!--Cadastro Controller-->
+        <scene sceneID="9EA-Nh-cCz">
+            <objects>
+                <viewController storyboardIdentifier="Cadastro" id="4Kg-XH-vh2" customClass="CadastroController" customModule="SoftSongIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mAv-88-30J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="483-dv-gkY">
+                                <rect key="frame" x="-28" y="-75" width="539" height="1010"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logologo" translatesAutoresizingMaskIntoConstraints="NO" id="VFU-Zx-Hxx">
+                                <rect key="frame" x="87" y="64" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-gu-eg9">
+                                <rect key="frame" x="68" y="513" width="326" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-cartÃ£o-de-identificaÃ§Ã£o-filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="fyB-Zo-98f">
+                                <rect key="frame" x="20" y="518" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srC-Pl-uz8">
+                                <rect key="frame" x="68" y="575" width="326" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIN-mT-K8E">
+                                <rect key="frame" x="68" y="635" width="326" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-nova-mensagem-filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="r73-Ag-OJt">
+                                <rect key="frame" x="20" y="580" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-cadeado-2-filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="Mc8-IW-6BD">
+                                <rect key="frame" x="20" y="640" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-administrador-masculino-100" translatesAutoresizingMaskIntoConstraints="NO" id="cvM-bR-453">
+                                <rect key="frame" x="20" y="701" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0oP-Nf-3IY">
+                                <rect key="frame" x="68" y="696" width="326" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icons8-imagem-100" translatesAutoresizingMaskIntoConstraints="NO" id="aPl-Hd-Rgp">
+                                <rect key="frame" x="147" y="343" width="120" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.06816294044" green="0.11416090280000001" blue="0.18708732719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="imk-LZ-cjv"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtMail" destination="srC-Pl-uz8" id="que-wj-VdA"/>
+                        <outlet property="txtNome" destination="0oP-Nf-3IY" id="Shc-e9-rde"/>
+                        <outlet property="txtSenha" destination="NIN-mT-K8E" id="sR2-h2-DH2"/>
+                        <outlet property="txtUser" destination="VH2-gu-eg9" id="w5q-BB-vgB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxF-4I-5rf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808.69565217391312" y="18.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back" width="1080" height="1920"/>
+        <image name="icons8-administrador-masculino-100" width="100" height="100"/>
+        <image name="icons8-cadeado-2-100" width="100" height="100"/>
+        <image name="icons8-cadeado-2-filled-100" width="100" height="100"/>
+        <image name="icons8-cartÃ£o-de-identificaÃ§Ã£o-filled-100" width="100" height="100"/>
+        <image name="icons8-imagem-100" width="100" height="100"/>
+        <image name="icons8-nova-mensagem-100" width="100" height="100"/>
+        <image name="icons8-nova-mensagem-filled-100" width="100" height="100"/>
+        <image name="logologo" width="100" height="100"/>
+        <image name="logologo.png" width="75" height="75"/>
+    </resources>
+</document>
