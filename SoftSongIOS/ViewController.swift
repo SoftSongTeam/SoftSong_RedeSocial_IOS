@@ -60,6 +60,19 @@ class ViewController: UIViewController {
         Linha1()
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+        let defaults = UserDefaults.standard
+        let u = defaults.string(forKey: "username")
+        print(u!)
+        if(u! != "")
+        {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+            let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
+            self.present(home, animated:true, completion:nil)
+        }
+        }
+    }
     
     @IBAction func Logar(_ sender: UIButton) {
         let login = txtLogin.text
@@ -111,6 +124,7 @@ class ViewController: UIViewController {
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
                         let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
                         self.present(home, animated:true, completion:nil)}
+                        self.SaveAll()
                     }
                     else
                     {
@@ -131,6 +145,15 @@ class ViewController: UIViewController {
         task.resume()
         
     }
+    
+    @IBAction func SaveAll() {
+        let username:String = txtLogin.text!
+        
+        let defaults = UserDefaults.standard
+        
+        defaults.set(username, forKey: "username")
+    }
+    
     func Linha1()  {
         let layer = CAShapeLayer()
         layer.path  = path.cgPath
