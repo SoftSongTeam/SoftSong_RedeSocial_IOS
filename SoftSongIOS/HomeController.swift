@@ -8,8 +8,42 @@
 
 import UIKit
 
-class HomeController: UIViewController {
+extension UIView {
+    func elevate(elevation: Double) {
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 0, height: elevation)
+        self.layer.shadowRadius = abs(CGFloat(elevation))
+        
+        self.layer.shadowOpacity = 0.24
+    }
+}
+
+class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return(self.IDPost.count)
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! HomeTableViewCell
+        cell.txtUsername?.text = (Username[indexPath.row])
+        cell.txtLikes?.text = "\(Likou[indexPath.row]) likes"
+        cell.txtPost?.text = ("\(Username[indexPath.row]): \(Legenda[indexPath.row])")
+        cell.txtData?.text = (Data_Horario[indexPath.row])
+        
+        let url = URL(string: "http://192.168.15.17/pictures/9.jpg")
+        
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            DispatchQueue.main.async {
+                cell.PicPerfil.image = UIImage(data: data!)
+            }
+        }
+        
+        return(cell)
+    }
+    
+    
+    @IBOutlet weak var tblPosts: UITableView!
     var Curtidas = [String]()
     var Likou = [String]()
     var Username = [String]()
@@ -23,9 +57,9 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DownloadJSON()
-
-        // Do any additional setup after loading the view.
     }
+    
+    
     
     func DownloadJSON()
     {
@@ -70,7 +104,7 @@ class HomeController: UIViewController {
                 }
                 
                 OperationQueue.main.addOperation({
-                    //self.tableView.reloadData()
+                    self.tblPosts.reloadData()
                 })
             }
         }).resume()
