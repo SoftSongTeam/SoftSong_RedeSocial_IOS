@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var Slider: UIWebView!
     @IBOutlet weak var PicPerfil: UIImageView!
     @IBOutlet weak var txtUsername: UILabel!
     @IBOutlet weak var BarraUP: UIView!
@@ -34,5 +36,6 @@ class HomeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }

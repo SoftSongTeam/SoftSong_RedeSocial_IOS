@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0376ABF2299F0CD00AB5DFC /* PicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0376ABE2299F0CD00AB5DFC /* PicsCollectionViewCell.swift */; };
 		D04D7A232294C1E3006AF3C2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D7A222294C1E3006AF3C2 /* HomeTableViewCell.swift */; };
 		D0AE8FFD228CA569002A12D7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0AE8FFC228CA569002A12D7 /* Home.storyboard */; };
 		D0AE8FFF228CA58D002A12D7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AE8FFE228CA58D002A12D7 /* HomeController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		C818FDC968974E701BE00985 /* Pods-SoftSongIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoftSongIOS.debug.xcconfig"; path = "Target Support Files/Pods-SoftSongIOS/Pods-SoftSongIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D0376ABE2299F0CD00AB5DFC /* PicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D04D7A222294C1E3006AF3C2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		D0AE8FFC228CA569002A12D7 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D0AE8FFE228CA58D002A12D7 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				D0AE8FFE228CA58D002A12D7 /* HomeController.swift */,
 				D0AE9000228CF90F002A12D7 /* CadastroController.swift */,
 				D04D7A222294C1E3006AF3C2 /* HomeTableViewCell.swift */,
+				D0376ABE2299F0CD00AB5DFC /* PicsCollectionViewCell.swift */,
 			);
 			path = SoftSongIOS;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				D0AE9001228CF90F002A12D7 /* CadastroController.swift in Sources */,
 				D04D7A232294C1E3006AF3C2 /* HomeTableViewCell.swift in Sources */,
 				D0EBAB2F2287A2F700A672F4 /* ViewController.swift in Sources */,
+				D0376ABF2299F0CD00AB5DFC /* PicsCollectionViewCell.swift in Sources */,
 				D0EBAB2D2287A2F700A672F4 /* AppDelegate.swift in Sources */,
 				D0AE8FFF228CA58D002A12D7 /* HomeController.swift in Sources */,
 			);

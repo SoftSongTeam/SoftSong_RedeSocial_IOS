@@ -18,7 +18,11 @@ extension UIView {
     }
 }
 
-class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(self.IDPost.count)
     }
@@ -29,8 +33,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.txtLikes?.text = "\(Likou[indexPath.row]) likes"
         cell.txtPost?.text = ("\(Username[indexPath.row]): \(Legenda[indexPath.row])")
         cell.txtData?.text = (Data_Horario[indexPath.row])
-        
-        let url = URL(string: "http://192.168.15.17/pictures/9.jpg")
+        let urll : NSURL! = NSURL(string: "http://192.168.15.17/slider.php?id=\(IDPost[indexPath.row])")
+        cell.Slider.loadRequest(NSURLRequest(url: urll as URL) as URLRequest)
+        cell.Slider.scalesPageToFit = true;
+        let u = "http://192.168.15.17/pictures/\(Caminho_imagem[indexPath.row])"
+        print(u)
+        let url = URL(string: u)
         
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
@@ -43,6 +51,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    @IBAction func btnReload(_ sender: Any) {
+        self.DownloadJSON()
+    }
+    
+    
+    
     @IBOutlet weak var tblPosts: UITableView!
     var Curtidas = [String]()
     var Likou = [String]()
@@ -53,16 +67,26 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var Titulo = [String]()
     var Legenda = [String]()
     var Data_Horario = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DownloadJSON()
     }
     
-    
-    
     func DownloadJSON()
     {
+        Curtidas.removeAll()
+        Likou.removeAll()
+        Username.removeAll()
+        Caminho_imagem.removeAll()
+        ID_Usuario.removeAll()
+        IDPost.removeAll()
+        Titulo.removeAll()
+        Legenda.removeAll()
+        Data_Horario.removeAll()
+
+
+
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "username")
         let url = NSURL(string: "http://192.168.15.17/PostDeals.php?username=\(userLogged!)")

@@ -64,8 +64,8 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
         let defaults = UserDefaults.standard
         let u = defaults.string(forKey: "username")
-        print(u!)
-        if(u! != "")
+        print(u)
+        if(u != nil)
         {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
             let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
@@ -121,10 +121,10 @@ class ViewController: UIViewController {
                     if(msg != nil && msg.count > 0)
                     {
                         DispatchQueue.main.async {
+                        self.SaveAll()
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
                         let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
                         self.present(home, animated:true, completion:nil)}
-                        self.SaveAll()
                     }
                     else
                     {
