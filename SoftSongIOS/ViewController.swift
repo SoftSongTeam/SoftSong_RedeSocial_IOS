@@ -28,7 +28,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     var path : UIBezierPath!
     let defaultValues = UserDefaults.standard
-    
+    var cm : String = ""
+    var id : String = ""
+    var mail : String = ""
     
     @IBOutlet weak var txtSenha: UITextField!
     @IBOutlet weak var txtLogin: UITextField!
@@ -56,6 +58,7 @@ class ViewController: UIViewController {
         txtSenha.layer.cornerRadius = 15
         txtSenha.clipsToBounds = true
         
+        
         make1()
         Linha1()
         // Do any additional setup after loading the view.
@@ -80,71 +83,51 @@ class ViewController: UIViewController {
         
         let URL = "http://192.168.15.17/DBConnect.php?nome=\(login!)&senha=\(senha!)"
         
-        let requestURL = NSURL(string: URL)
-        
-        //creating NSMutableURLRequest
-        let request = NSMutableURLRequest(url: requestURL! as URL)
-        
-        //setting the method to post
-        request.httpMethod = "POST"
-        
-        //getting values from text fields
-        
-        
-        
-        //creating a task to send the post request
-        let task = URLSession.shared.dataTask(with: request as URLRequest){
-            data, response, error in
-            
-            if error != nil{
-                print("error is \(String(describing: error))")
-                return;
-            }
-            
-            //parsing the response
-            do {
-                //converting resonse to NSDictionary
-                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+        let url = NSURL(string: URL)
+        URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
+            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
+                print(jsonObj.value(forKey: "data") as Any)
                 
-                //parsing the json
-                if(myJSON != nil)
-                {
-                if let parseJSON = myJSON{
-                    
-                    //creating a string
-                    var msg : NSArray!
-            
-                    //getting the json response
-                    msg = parseJSON["data"] as? NSArray
-                    //printing the response
-                    //print(msg[0])
-                    if(msg != nil && msg.count > 0)
+                if let actorArray = jsonObj.value(forKey: "data") as? NSArray {
+                    for actor in actorArray{
+                        if let actorDict = actor as? NSDictionary {
+                            if let name = actorDict.value(forKey: "caminho_imagem") {
+                                self.cm = (name as! String)
+                            }
+                            if let name = actorDict.value(forKey: "IDUsuario") {
+                                self.id = (name as! String)
+                            }
+                            if let name = actorDict.value(forKey: "email") {
+                                self.mail = (name as! String)
+                            }
+                        }
+                    }
+                    //print(self.Username[2])
+                }
+                
+                OperationQueue.main.addOperation({
+                    if(self.cm != "")
                     {
                         DispatchQueue.main.async {
-                        self.SaveAll()
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                        let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
-                        self.present(home, animated:true, completion:nil)}
+                            self.SaveAll()
+                            let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                            let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
+                            self.present(home, animated:true, completion:nil)}
                     }
                     else
                     {
                         DispatchQueue.main.async {
-                      let alert = UIAlertController(title: "Tente Novamente", message: "Usuario ou senha incorretos", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Tente Novamente", message: "Usuario ou senha incorretos", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in}))
-                        self.present(alert, animated: true, completion: nil)
-                        }
+                            self.present(alert, animated: true, completion: nil)
                     }
-                }
-                }
-            } catch {
-                print(error)
+                    }
+                
+                })
             }
-            
-        }
-        //executing the task
-        task.resume()
-        
+        }).resume()
     }
+    
     
     @IBAction func SaveAll() {
         let username:String = txtLogin.text!
@@ -152,6 +135,9 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         
         defaults.set(username, forKey: "username")
+        defaults.set(self.cm, forKey: "caminho_imagem")
+        defaults.set(self.id, forKey: "id")
+        defaults.set(self.mail, forKey: "mail")
     }
     
     func Linha1()  {

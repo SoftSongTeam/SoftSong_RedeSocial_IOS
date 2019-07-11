@@ -1,28 +1,14 @@
 //
-//  HomeController.swift
+//  PostsPerfilController.swift
 //  SoftSongIOS
 //
-//  Created by Felipe  Perrella on 15/05/19.
+//  Created by Felipe  Perrella on 01/07/19.
 //  Copyright © 2019 Felipe Perrella. All rights reserved.
 //
 
 import UIKit
 
-extension UIView {
-    func elevate(elevation: Double) {
-        self.layer.masksToBounds = false
-        self.layer.shadowOffset = CGSize(width: 0, height: elevation)
-        self.layer.shadowRadius = abs(CGFloat(elevation))
-        
-        self.layer.shadowOpacity = 0.24
-    }
-}
-
-class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource
-{
-    
-    
-    
+class PostsPerfilController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(self.IDPost.count)
     }
@@ -40,7 +26,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.btnLike.setImage(UIImage(named: "icons8-copas-100-2"), for: UIControl.State.normal)
         }
         let urll : NSURL! = NSURL(string: "http://192.168.15.17/slider.php?id=\(IDPost[indexPath.row])")
-        cell.controller = "home"
         cell.Slider.loadRequest(NSURLRequest(url: urll as URL) as URLRequest)
         cell.Slider.scalesPageToFit = true;
         let u = "http://192.168.15.17/pictures/\(Caminho_imagem[indexPath.row])"
@@ -56,16 +41,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return(cell)
     }
-    
-    
-    @IBAction func btnReload(_ sender: Any) {
-        self.DownloadJSON()
-    }
-    
-    
-    
-    @IBOutlet var MainView: UIView!
-    @IBOutlet weak var tblPosts: UITableView!
+    var id : String = ""
+    @IBOutlet weak var Posts: UITableView!
     var Curtidas = [String]()
     var Likou = [String]()
     var Username = [String]()
@@ -75,19 +52,12 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var Titulo = [String]()
     var Legenda = [String]()
     var Data_Horario = [String]()
-    static let IP = "192.168.15.17"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        DownloadJSON()
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "id")
-        print(userLogged!)
-    }
-    
-    static func Comentar()
-    {
-                
+        id = userLogged!
+        DownloadJSON()
     }
     
     func DownloadJSON()
@@ -101,12 +71,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         Titulo.removeAll()
         Legenda.removeAll()
         Data_Horario.removeAll()
-
-
-
-        let defaults = UserDefaults.standard
-        let userLogged = defaults.string(forKey: "id")
-        let url = NSURL(string: "http://192.168.15.17/PostDeals.php?id=\(userLogged!)")
+        let x : String = self.id
+        let url = NSURL(string: "http://192.168.15.17/PostDealsMy.php?id=\(x)")
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                 print(jsonObj.value(forKey: "posts") as Any)
@@ -145,11 +111,10 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 OperationQueue.main.addOperation({
-                    self.tblPosts.reloadData()
+                    self.Posts.reloadData()
                 })
             }
         }).resume()
     }
-    
 
 }
