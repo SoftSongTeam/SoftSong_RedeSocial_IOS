@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D024E20B22FF30E900540B5C /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024E20A22FF30E900540B5C /* CommentsController.swift */; };
+		D024E20D22FF3C1500540B5C /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D024E20C22FF3C1500540B5C /* CommentsCell.swift */; };
 		D0376ABF2299F0CD00AB5DFC /* PicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0376ABE2299F0CD00AB5DFC /* PicsCollectionViewCell.swift */; };
 		D04D7A232294C1E3006AF3C2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D7A222294C1E3006AF3C2 /* HomeTableViewCell.swift */; };
 		D0668A0622BC3726003B91B3 /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0668A0522BC3726003B91B3 /* UpdateController.swift */; };
@@ -31,8 +33,23 @@
 		D0EBAB3F2287A39800A672F4 /* logologo.png in Resources */ = {isa = PBXBuildFile; fileRef = D0EBAB3E2287A39800A672F4 /* logologo.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D07C7F0A22F8DDC500DA88B1 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C818FDC968974E701BE00985 /* Pods-SoftSongIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoftSongIOS.debug.xcconfig"; path = "Target Support Files/Pods-SoftSongIOS/Pods-SoftSongIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D024E20A22FF30E900540B5C /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
+		D024E20C22FF3C1500540B5C /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		D0376ABE2299F0CD00AB5DFC /* PicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D04D7A222294C1E3006AF3C2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		D0668A0522BC3726003B91B3 /* UpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateController.swift; sourceTree = "<group>"; };
@@ -131,6 +148,8 @@
 				D077470422CEA537004325A6 /* PublicPerfilController.swift */,
 				D0E0E7B322CFBBBC00757FC8 /* FollowersPostController.swift */,
 				D0E0E7B522D00BB400757FC8 /* SearchController.swift */,
+				D024E20A22FF30E900540B5C /* CommentsController.swift */,
+				D024E20C22FF3C1500540B5C /* CommentsCell.swift */,
 			);
 			path = SoftSongIOS;
 			sourceTree = "<group>";
@@ -146,6 +165,7 @@
 				D0EBAB252287A2F700A672F4 /* Sources */,
 				D0EBAB262287A2F700A672F4 /* Frameworks */,
 				D0EBAB272287A2F700A672F4 /* Resources */,
+				D07C7F0A22F8DDC500DA88B1 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -162,7 +182,7 @@
 		D0EBAB212287A2F700A672F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Felipe Perrella";
 				TargetAttributes = {
@@ -236,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B5C61D22CADFC90076F0F6 /* PostsPerfilController.swift in Sources */,
+				D024E20D22FF3C1500540B5C /* CommentsCell.swift in Sources */,
 				D0B5C61B22CA8CB30076F0F6 /* SuccessPopUp.swift in Sources */,
 				D0BDE49022B5982600DF2E6B /* DashboardController.swift in Sources */,
 				D0AE9001228CF90F002A12D7 /* CadastroController.swift in Sources */,
@@ -244,6 +265,7 @@
 				D0E0E7B422CFBBBC00757FC8 /* FollowersPostController.swift in Sources */,
 				D0EBAB2F2287A2F700A672F4 /* ViewController.swift in Sources */,
 				D0B5C62122CAF0FA0076F0F6 /* FollowersController.swift in Sources */,
+				D024E20B22FF30E900540B5C /* CommentsController.swift in Sources */,
 				D0668A0622BC3726003B91B3 /* UpdateController.swift in Sources */,
 				D0376ABF2299F0CD00AB5DFC /* PicsCollectionViewCell.swift in Sources */,
 				D0E0E7B622D00BB400757FC8 /* SearchController.swift in Sources */,

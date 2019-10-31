@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img" translatesAutoresizingMaskIntoConstraints="NO" id="wN6-Sy-TEN">
+                                <rect key="frame" x="-59" y="-101" width="533" height="1075"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logologo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NEf-5b-H3f">
                                 <rect key="frame" x="87" y="63" width="240" height="118"/>
                                 <constraints>
@@ -26,34 +30,34 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n8f-WW-mXv">
-                                <rect key="frame" x="56.666666666666657" y="275" width="301" height="40"/>
-                                <color key="backgroundColor" red="0.06816294044" green="0.11416090280000001" blue="0.18708732719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="56.5" y="275" width="301" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" hint="Login" label="Login"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="301" id="KOT-iX-wX0"/>
                                     <constraint firstAttribute="height" constant="40" id="R4e-Ea-tv8"/>
                                 </constraints>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48P-xR-Ql9">
-                                <rect key="frame" x="56.666666666666657" y="352" width="301" height="40"/>
-                                <color key="backgroundColor" red="0.06816294044" green="0.11416090280000001" blue="0.18708732719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="56.5" y="352" width="301" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" hint="Login" label="Login"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="301" id="OJI-9Z-c8t"/>
                                     <constraint firstAttribute="height" constant="40" id="i16-KE-lUO"/>
                                 </constraints>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-nova-mensagem-100" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-i0-S2f">
-                                <rect key="frame" x="16" y="280" width="29.666666666666671" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-administrador-masculino-100" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-i0-S2f">
+                                <rect key="frame" x="16" y="280" width="29.5" height="30"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cadeado-2-100" translatesAutoresizingMaskIntoConstraints="NO" id="HwR-bB-0bd">
-                                <rect key="frame" x="16" y="357" width="29.666666666666671" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-cadeado-2-filled-100" translatesAutoresizingMaskIntoConstraints="NO" id="HwR-bB-0bd">
+                                <rect key="frame" x="16" y="357" width="29.5" height="30"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJI-S5-CW7">
                                 <rect key="frame" x="32" y="453" width="350" height="40"/>
@@ -76,14 +80,14 @@
                                     <constraint firstAttribute="height" constant="30" id="qRx-7F-RQE"/>
                                 </constraints>
                                 <state key="normal" title="Ainda nao tem conta? Cadastre-se!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="4Kg-XH-vh2" kind="presentation" id="fBM-5q-GfK"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.068162940442562103" green="0.11416090279817581" blue="0.18708732724189758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="n8f-WW-mXv" firstAttribute="leading" secondItem="4ZF-i0-S2f" secondAttribute="trailing" constant="11" id="1Wx-eN-IX6"/>
@@ -128,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="483-dv-gkY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back1-1" translatesAutoresizingMaskIntoConstraints="NO" id="483-dv-gkY">
                                 <rect key="frame" x="-25" y="-25" width="464" height="946"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logologo" translatesAutoresizingMaskIntoConstraints="NO" id="VFU-Zx-Hxx">
@@ -287,14 +291,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="1080" height="1920"/>
+        <image name="back1-1" width="1440" height="2550"/>
         <image name="icons8-administrador-masculino-100" width="100" height="100"/>
-        <image name="icons8-cadeado-2-100" width="100" height="100"/>
         <image name="icons8-cadeado-2-filled-100" width="100" height="100"/>
         <image name="icons8-cartÃ£o-de-identificaÃ§Ã£o-filled-100" width="100" height="100"/>
-        <image name="icons8-nova-mensagem-100" width="100" height="100"/>
         <image name="icons8-nova-mensagem-filled-100" width="100" height="100"/>
         <image name="icons8-usuÃ¡rio-masculino-512" width="512" height="512"/>
+        <image name="img" width="1440" height="2550"/>
         <image name="logologo" width="100" height="100"/>
         <image name="logologo.png" width="75" height="75"/>
     </resources>

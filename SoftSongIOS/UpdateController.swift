@@ -51,7 +51,7 @@ class UpdateController: UIViewController {
         btnCadastrar.layer.addSublayer(gradientLayer)
         let defaults = UserDefaults.standard
         let pic = defaults.string(forKey: "caminho_imagem")
-        let u = "http://192.168.15.17/pictures/\(pic!)"
+        let u = "http://\(ViewController.IP)/pictures/\(pic!)"
         print(u)
         let url = URL(string: u)
         DispatchQueue.global().async {
@@ -95,7 +95,7 @@ class UpdateController: UIViewController {
         let senha = txtSenha.text!
         let desc = "teste"
         self.myImageUploadRequest()
-        let url = ("http://192.168.15.17/updateUser.php?id=\(userLogged!)&user=\(user)&nome=\(nome)&email=\(mail)&senha=\(senha)&telefone=\(tel)&caminho_imagem=\(caminho)&descricao=\(desc)")
+        let url = ("http://\(ViewController.IP)/updateUser.php?id=\(userLogged!)&user=\(user)&nome=\(nome)&email=\(mail)&senha=\(senha)&telefone=\(tel)&caminho_imagem=\(caminho)&descricao=\(desc)")
         print(url)
         let requestURL = NSURL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         URLSession.shared.dataTask(with: (requestURL as URL?)!, completionHandler: {(data, response, error) -> Void in
@@ -135,7 +135,7 @@ class UpdateController: UIViewController {
     {
             let defaults = UserDefaults.standard
             let userLogged = defaults.string(forKey: "id")
-            let url = NSURL(string: "http://192.168.15.17/loadInfo.php?id=\(userLogged!)")
+            let url = NSURL(string: "http://\(ViewController.IP)/loadInfo.php?id=\(userLogged!)")
             URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
                 if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                     print(jsonObj.value(forKey: "info") as Any)
@@ -169,7 +169,7 @@ class UpdateController: UIViewController {
     
     func myImageUploadRequest()
     {
-        let myUrl = NSURL(string: "http://192.168.15.17/postPic.php");
+        let myUrl = NSURL(string: "http://\(ViewController.IP)/postPic.php");
         let request = NSMutableURLRequest(url:myUrl! as URL);
         request.httpMethod = "POST";
         let param = [

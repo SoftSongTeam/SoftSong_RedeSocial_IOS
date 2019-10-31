@@ -17,7 +17,7 @@ class FollowersController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "follows", for: indexPath) as! FollowsCell
         cell.lblUsername?.setTitle("@\((Username[indexPath.row]))", for: UIControl.State.normal)
         //cell.lblNome?.text = Nome[indexPath.row]
-        let u = "http://192.168.15.17/pictures/\(Caminho_Imagem[indexPath.row])"
+        let u = "http://\(ViewController.IP)/pictures/\(Caminho_Imagem[indexPath.row])"
         print(u)
         let url = URL(string: u)
         
@@ -53,7 +53,7 @@ class FollowersController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func DownloadJSON()
     {
-        let url = ( "http://192.168.15.17/Seguidores_Seguidos.php?type=\(FollowersController.TypeC)&user=\(FollowersController.User)")
+        let url = ( "http://\(ViewController.IP)/Seguidores_Seguidos.php?type=\(FollowersController.TypeC)&user=\(FollowersController.User)")
         print(url)
         let requestURL = NSURL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         URLSession.shared.dataTask(with: (requestURL as URL?)!, completionHandler: {(data, response, error) -> Void in

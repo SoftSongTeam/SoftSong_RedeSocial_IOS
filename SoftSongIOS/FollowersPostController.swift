@@ -25,10 +25,10 @@ class FollowersPostController: UIViewController , UITableViewDelegate, UITableVi
             cell.liked = true
             cell.btnLike.setImage(UIImage(named: "icons8-copas-100-2"), for: UIControl.State.normal)
         }
-        let urll : NSURL! = NSURL(string: "http://192.168.15.17/slider.php?id=\(IDPost[indexPath.row])")
+        let urll : NSURL! = NSURL(string: "http://\(ViewController.IP)/slider.php?id=\(IDPost[indexPath.row])")
         cell.Slider.loadRequest(NSURLRequest(url: urll as URL) as URLRequest)
         cell.Slider.scalesPageToFit = true;
-        let u = "http://192.168.15.17/pictures/\(Caminho_imagem[indexPath.row])"
+        let u = "http://\(ViewController.IP)/pictures/\(Caminho_imagem[indexPath.row])"
         print(u)
         let url = URL(string: u)
         
@@ -73,7 +73,7 @@ class FollowersPostController: UIViewController , UITableViewDelegate, UITableVi
         Titulo.removeAll()
         Legenda.removeAll()
         Data_Horario.removeAll()
-        let url = NSURL(string: "http://192.168.15.17/PostDealsSpec.php?id=\(userLogged!)&username=\(FollowersPostController.user)")
+        let url = NSURL(string: "http://\(ViewController.IP)/PostDealsSpec.php?id=\(userLogged!)&username=\(FollowersPostController.user)")
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                 print(jsonObj.value(forKey: "posts") as Any)

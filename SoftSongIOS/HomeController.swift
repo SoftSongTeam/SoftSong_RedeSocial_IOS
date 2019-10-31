@@ -39,11 +39,11 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.liked = true
             cell.btnLike.setImage(UIImage(named: "icons8-copas-100-2"), for: UIControl.State.normal)
         }
-        let urll : NSURL! = NSURL(string: "http://192.168.15.17/slider.php?id=\(IDPost[indexPath.row])")
+        let urll : NSURL! = NSURL(string: "http://\(ViewController.IP)/slider.php?id=\(IDPost[indexPath.row])")
         cell.controller = "home"
         cell.Slider.loadRequest(NSURLRequest(url: urll as URL) as URLRequest)
         cell.Slider.scalesPageToFit = true;
-        let u = "http://192.168.15.17/pictures/\(Caminho_imagem[indexPath.row])"
+        let u = "http://\(ViewController.IP)/pictures/\(Caminho_imagem[indexPath.row])"
         print(u)
         let url = URL(string: u)
         
@@ -57,12 +57,15 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return(cell)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     
     @IBAction func btnReload(_ sender: Any) {
         self.DownloadJSON()
     }
-    
-    
+
     
     @IBOutlet var MainView: UIView!
     @IBOutlet weak var tblPosts: UITableView!
@@ -75,19 +78,24 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var Titulo = [String]()
     var Legenda = [String]()
     var Data_Horario = [String]()
-    static let IP = "192.168.15.17"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DownloadJSON()
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "id")
         print(userLogged!)
+        DownloadJSON()
     }
     
     static func Comentar()
     {
-                
+         print(HomeTableViewCell.idp)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "comments") as! CommentsController
+        appDelegate.window? = UIWindow(frame: UIScreen.main.bounds)
+        appDelegate.window?.rootViewController = initialViewControlleripad
+        appDelegate.window?.makeKeyAndVisible()
     }
     
     func DownloadJSON()
@@ -106,7 +114,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "id")
-        let url = NSURL(string: "http://192.168.15.17/PostDeals.php?id=\(userLogged!)")
+        let url = NSURL(string: "http://\(ViewController.IP)/PostDeals.php?id=\(userLogged!)")
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                 print(jsonObj.value(forKey: "posts") as Any)

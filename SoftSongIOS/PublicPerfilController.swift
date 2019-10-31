@@ -75,7 +75,7 @@ class PublicPerfilController: UIViewController {
         
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "id")
-        let url = NSURL(string: "http://192.168.15.17/PublicPerfil.php?id=\(userLogged!)&user=\(PublicPerfilController.user)")
+        let url = NSURL(string: "http://\(ViewController.IP)/PublicPerfil.php?id=\(userLogged!)&user=\(PublicPerfilController.user)")
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                 print(jsonObj.value(forKey: "data") as Any)
@@ -174,12 +174,12 @@ class PublicPerfilController: UIViewController {
         let userLogged = defaults.string(forKey: "id")
         if(btnBloquear.titleLabel?.text == "B L O Q U E A R")
         {
-            let url = "http://192.168.15.17/blockProcedure.php?user=\(PublicPerfilController.user)&id=\(userLogged!)"
+            let url = "http://\(ViewController.IP)/blockProcedure.php?user=\(PublicPerfilController.user)&id=\(userLogged!)"
             self.Interacoes(url: url)
         }
         else
         {
-            let url = "http://192.168.15.17/Interacoes.php?type=desbloquear&user=\(PublicPerfilController.user)&id=\(userLogged!)"
+            let url = "http://\(ViewController.IP)/Interacoes.php?type=desbloquear&user=\(PublicPerfilController.user)&id=\(userLogged!)"
             self.Interacoes(url: url)
         }
     }
@@ -189,12 +189,12 @@ class PublicPerfilController: UIViewController {
         let userLogged = defaults.string(forKey: "id")
         if(btnSeguir.titleLabel?.text == "S E G U I R")
         {
-            let url = "http://192.168.15.17/Interacoes.php?type=follow&user=\(PublicPerfilController.user)&id=\(userLogged!)"
+            let url = "http://\(ViewController.IP)/Interacoes.php?type=follow&user=\(PublicPerfilController.user)&id=\(userLogged!)"
             self.Interacoes(url: url)
         }
         else
         {
-            let url = "http://192.168.15.17/Interacoes.php?type=unfollow&user=\(PublicPerfilController.user)&id=\(userLogged!)"
+            let url = "http://\(ViewController.IP)/Interacoes.php?type=unfollow&user=\(PublicPerfilController.user)&id=\(userLogged!)"
             self.Interacoes(url: url)
         }
     }

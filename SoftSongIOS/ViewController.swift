@@ -8,8 +8,6 @@
 
 import UIKit
 
-//import Alamofire
-
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -29,6 +27,7 @@ class ViewController: UIViewController {
     var path : UIBezierPath!
     let defaultValues = UserDefaults.standard
     var cm : String = ""
+    static var IP : String = "35.229.108.103/mobile"
     var id : String = ""
     var mail : String = ""
     
@@ -37,30 +36,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let c1 = UIColor.init(netHex: 0x285FBA)
-        let c2 = UIColor.init(netHex: 0x7535AD)
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [c1.cgColor, c2.cgColor]
-        gradientLayer.startPoint = CGPoint(x:0.0, y:0.5)
-        gradientLayer.endPoint = CGPoint(x:1.0, y:0.5)
-        gradientLayer.frame = self.btnLogin.bounds
-        gradientLayer.cornerRadius = 10
-        btnLogin.layer.addSublayer(gradientLayer)
+        btnLogin.layer.borderWidth = 2
+        let c2 = UIColor.init(netHex: 0x7d7d7d)
+        btnLogin.setTitleColor(c2, for: UIControl.State.normal)
+        btnLogin.layer.borderColor = c2.cgColor
         btnLogin.layer.cornerRadius = 15
+        btnLogin.clipsToBounds = true
         let myColor = UIColor.white
-        txtLogin.layer.borderColor = myColor.cgColor
+        txtLogin.layer.borderColor = c2.cgColor
         txtLogin.layer.borderWidth = 2.0
         txtLogin.layer.cornerRadius = 15
         txtLogin.clipsToBounds = true
-        txtSenha.layer.borderColor = myColor.cgColor
+        txtSenha.layer.borderColor = c2.cgColor
         txtSenha.layer.borderWidth = 2.0
         txtSenha.layer.cornerRadius = 15
         txtSenha.clipsToBounds = true
         
         
-        make1()
-        Linha1()
+        //make1()
+        //Linha1()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -81,7 +75,7 @@ class ViewController: UIViewController {
         let login = txtLogin.text
         let senha = txtSenha.text
         
-        let URL = "http://192.168.15.17/DBConnect.php?nome=\(login!)&senha=\(senha!)"
+        let URL = "http://\(ViewController.IP)/DBConnect.php?nome=\(login!)&senha=\(senha!)"
         
         let url = NSURL(string: URL)
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in

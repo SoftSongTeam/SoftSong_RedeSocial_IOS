@@ -25,6 +25,7 @@ class HomeTableViewCell: UITableViewCell {
     var postID = ""
     var liked = false
     var controller : String = ""
+    static var idp : String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         BarraUP.elevate(elevation: 0.5)
@@ -58,6 +59,7 @@ class HomeTableViewCell: UITableViewCell {
     
     
     @IBAction func Comentar(_ sender: Any) {
+        HomeTableViewCell.idp = self.postID
         HomeController.Comentar()
     }
     
@@ -67,7 +69,7 @@ class HomeTableViewCell: UITableViewCell {
     {
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "id")
-        let url = NSURL(string: "http://\(HomeController.IP)/LikeDeslike.php?id=\(userLogged!)&post=\(postID)")
+        let url = NSURL(string: "http://\(ViewController.IP)/LikeDeslike.php?id=\(userLogged!)&post=\(postID)")
         let request = URLRequest(url:url! as URL)
         let task = URLSession.shared.dataTask(with: request as URLRequest ) {(data, response, error) in
             guard let data = data else { return }

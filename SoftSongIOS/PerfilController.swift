@@ -49,7 +49,7 @@ class PerfilController: UIViewController {
         EffectView?.backgroundColor = UIColor(white: 1, alpha: 0)
         let defaults = UserDefaults.standard
         let cm = defaults.string(forKey: "caminho_imagem")
-        let u = "http://192.168.15.17/pictures/\(cm!)"
+        let u = "http://\(ViewController.IP)/pictures/\(cm!)"
         print(u)
         let url = URL(string: u)
         
@@ -72,7 +72,7 @@ class PerfilController: UIViewController {
         
         let defaults = UserDefaults.standard
         let userLogged = defaults.string(forKey: "username")
-        let url = NSURL(string: "http://192.168.15.17/InfoPerfil.php?nome=\(userLogged!)")
+        let url = NSURL(string: "http://\(ViewController.IP)/InfoPerfil.php?nome=\(userLogged!)")
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                 print(jsonObj.value(forKey: "info") as Any)

@@ -16,6 +16,7 @@ class CadastroController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBOutlet weak var txtNome: UITextField!
     @IBOutlet weak var Picture: UIImageView!
     @IBOutlet weak var BtnCadastrar: UIButton!
+    var id : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +32,14 @@ class CadastroController: UIViewController, UINavigationControllerDelegate, UIIm
         txtNome.layer.borderWidth = 2.0
         txtNome.layer.cornerRadius = 15
         txtNome.clipsToBounds = true
-        let c1 = UIColor.init(netHex: 0x285FBA)
-        let c2 = UIColor.init(netHex: 0x7535AD)
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [c1.cgColor, c2.cgColor]
-        gradientLayer.startPoint = CGPoint(x:0.0, y:0.5)
-        gradientLayer.endPoint = CGPoint(x:1.0, y:0.5)
-        gradientLayer.frame = self.BtnCadastrar.bounds
-        gradientLayer.cornerRadius = 10
-        BtnCadastrar.layer.addSublayer(gradientLayer)
+        BtnCadastrar.layer.borderWidth = 2
+        let c2 = UIColor.init(netHex: 0x7d7d7d)
+        BtnCadastrar.setTitleColor(c2, for: UIControl.State.normal)
+        BtnCadastrar.layer.borderColor = c2.cgColor
+        BtnCadastrar.layer.cornerRadius = 15
+        BtnCadastrar.clipsToBounds = true
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -67,10 +66,10 @@ class CadastroController: UIViewController, UINavigationControllerDelegate, UIIm
         let senha = txtSenha.text
         let email = txtMail.text
         let nome = txtNome.text!
-        let caminho = username! + ".jpg"
+        let caminho = "\(username!).jpg"
         if(username != "" && senha != "" && email != "" && nome != "")
         {
-        let URL = "http://192.168.15.17/InserirCadastro.php?user=\(username!)&senha=\(senha!)&email=\(email!)&nome=\(nome)&caminho=\(caminho)"
+        let URL = "http://\(ViewController.IP)/InserirCadastro.php?user=\(username!)&senha=\(senha!)&email=\(email!)&nome=\(nome)&caminho=\(caminho)"
         let requestURL = NSURL(string: URL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         let request = NSMutableURLRequest(url: requestURL! as URL)
         request.httpMethod = "POST"
@@ -89,14 +88,18 @@ class CadastroController: UIViewController, UINavigationControllerDelegate, UIIm
                     if let parseJSON = myJSON{
                         var msg : NSArray!
                         msg = parseJSON["result"] as? NSArray
+                        msg = msg.value(forKey: "is") as! NSArray
+                        self.id = msg.firstObject as! String
                         if(msg != nil && msg.count > 0)
                         {
+                            
                             DispatchQueue.main.async {
+                                self.SaveAll()
                                 let storyBoard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
                                 let home = storyBoard.instantiateViewController(withIdentifier: "home") as! HomeController
                                 self.present(home, animated:true, completion:nil)}
                             self.myImageUploadRequest()
-                            self.SaveAll()
+                            
                         }
                         else
                         {
@@ -127,17 +130,20 @@ class CadastroController: UIViewController, UINavigationControllerDelegate, UIIm
         
     }
     
+    
+    
     @IBAction func SaveAll() {
         let username:String = txtUser.text!
         
         let defaults = UserDefaults.standard
         
         defaults.set(username, forKey: "username")
+        defaults.set(self.id, forKey: "id")
     }
     
     func myImageUploadRequest()
     {
-        let myUrl = NSURL(string: "http://192.168.15.17/postPic.php");
+        let myUrl = NSURL(string: "http://\(ViewController.IP)/postPic.php");
         let request = NSMutableURLRequest(url:myUrl! as URL);
         request.httpMethod = "POST";
         let param = [
@@ -204,6 +210,8 @@ class CadastroController: UIViewController, UINavigationControllerDelegate, UIIm
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().uuidString)"
     }
+    
+    
     
     
 }

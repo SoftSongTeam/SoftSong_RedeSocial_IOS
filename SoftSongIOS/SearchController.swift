@@ -17,14 +17,18 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "follows", for: indexPath) as! FollowsCell
         cell.lblUsername?.setTitle("@\((Username[indexPath.row]))", for: UIControl.State.normal)
         //cell.lblNome?.text = Nome[indexPath.row]
-        let u = "http://192.168.15.17/pictures/\(Caminho_Imagem[indexPath.row])"
+        let u = "http://\(ViewController.IP)/pictures/\(Caminho_Imagem[indexPath.row])"
         print(u)
         let url = URL(string: u)
         
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
             DispatchQueue.main.async {
-                cell.imgPerfil.image = UIImage(data: data!)
+                if(UIImage(data: (data! ?? nil)!) != nil)
+                {
+                    cell.imgPerfil.image = UIImage(data: data!)
+                }
+                
             }
         }
         
@@ -68,7 +72,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.Caminho_Imagem.removeAll()
         self.Username.removeAll()
         self.Nome.removeAll()
-        let url = ( "http://192.168.15.17/Search.php?user=\(txtSearch.text!)")
+        let url = ( "http://\(ViewController.IP)/Search.php?user=\(txtSearch.text!)")
         print(url)
         let requestURL = NSURL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         URLSession.shared.dataTask(with: (requestURL as URL?)!, completionHandler: {(data, response, error) -> Void in

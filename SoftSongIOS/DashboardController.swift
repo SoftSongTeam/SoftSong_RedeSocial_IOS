@@ -50,7 +50,7 @@ class DashboardController: UIViewController {
         let em = defaults.string(forKey: "mail")
         Username.text = user
         Mail.text = em
-        let u = "http://192.168.15.17/pictures/\(cm!)"
+        let u = "http://\(ViewController.IP)/pictures/\(cm!)"
         print(u)
         let url = URL(string: u)
         
